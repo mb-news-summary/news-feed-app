@@ -1,0 +1,63 @@
+name: "Test Gap"
+description: "Track missing unit/integration/regression coverage."
+title: "test(<scope>): <short description>"
+labels: ["testing", "needs-triage"]
+body:
+  - type: dropdown
+    id: suite
+    attributes:
+      label: Test Type
+      options:
+        - unit
+        - integration
+        - regression
+        - e2e/manual flow
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - frontend
+        - api-gateway
+        - worker-fetcher
+        - worker-summarizer
+        - infra/devops
+    validations:
+      required: true
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Missing Scenario
+      description: What behavior is currently untested?
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files To Add / Update
+      placeholder: |
+        - frontend/src/lib/newsApi.test.ts
+        - api-gateway/main_test.go
+
+  - type: textarea
+    id: run
+    attributes:
+      label: How to Run
+      placeholder: |
+        - pnpm test
+        - go test ./...
+        - docker compose up -d --build && curl ...
+
+  - type: checkboxes
+    id: done
+    attributes:
+      label: Definition of Done
+      options:
+        - label: Test fails before fix
+        - label: Test passes after fix
+        - label: README updated with test command (if needed)

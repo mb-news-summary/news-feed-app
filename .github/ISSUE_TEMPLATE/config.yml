@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Gemini API Key Setup
+    url: https://ai.google.dev/gemini-api/docs/api-key
+    about: How to generate and configure a Gemini API key.
+  - name: GNews API Key Setup
+    url: https://gnews.io/
+    about: How to get and configure a GNews API key.

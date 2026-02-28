@@ -1,0 +1,64 @@
+name: "Ops / Infra Task"
+description: "Infrastructure, docker-compose, CI/CD, deployment, reliability tasks."
+title: "chore(infra): <short description>"
+labels: ["infra", "needs-triage"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - docker-compose
+        - ci-cd
+        - observability
+        - security
+        - performance
+        - deployment
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What should improve after this task?
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      placeholder: |
+        - service(s) affected
+        - env vars changed
+        - workflow files changed
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files To Add / Update
+      placeholder: |
+        - docker-compose.yml
+        - .github/workflows/ci.yml
+        - README.md
+
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Rollout / Verification Plan
+      placeholder: |
+        - Step 1
+        - Step 2
+        - Smoke checks
+
+  - type: checkboxes
+    id: risk
+    attributes:
+      label: Risk Controls
+      options:
+        - label: Backward compatibility reviewed
+        - label: Rollback path defined
+        - label: Secrets are not committed

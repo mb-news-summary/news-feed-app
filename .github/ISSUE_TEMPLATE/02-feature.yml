@@ -1,0 +1,74 @@
+name: "Feature Request"
+description: "Request a new feature with acceptance criteria and implementation scope."
+title: "feat(<scope>): <short description>"
+labels: ["feature", "needs-triage"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Primary Component
+      options:
+        - frontend
+        - api-gateway
+        - worker-fetcher
+        - worker-summarizer
+        - infra/devops
+        - docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What user or system problem are we solving?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: What should be built?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files To Add / Update
+      description: List concrete files expected for implementation.
+      placeholder: |
+        - frontend/src/components/FilterPanel.tsx
+        - frontend/src/pages/Index.tsx
+        - frontend/src/lib/newsApi.ts
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test Plan
+      description: Unit/integration/regression coverage required.
+      placeholder: |
+        - frontend: pnpm test
+        - api-gateway: go test ./...
+        - integration: curl + browser verification
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints
+      options:
+        - label: Backward compatibility considered
+        - label: Env vars and docs updates included
+        - label: Security/secrets impact reviewed

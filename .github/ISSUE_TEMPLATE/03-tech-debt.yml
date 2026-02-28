@@ -1,0 +1,62 @@
+name: "Technical Debt / Refactor"
+description: "Track refactors, cleanup, and maintainability improvements."
+title: "refactor(<scope>): <short description>"
+labels: ["tech-debt", "needs-triage"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - frontend
+        - api-gateway
+        - worker-fetcher
+        - worker-summarizer
+        - infra/devops
+        - docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: debt
+    attributes:
+      label: Debt Description
+      description: What is hard to maintain now?
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Current Risks
+      placeholder: |
+        - reliability risk
+        - performance risk
+        - testing risk
+    validations:
+      required: true
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: Refactor Plan
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files To Add / Update
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Validation / Tests
+      placeholder: |
+        - go test ./...
+        - pnpm test
+        - compose smoke test

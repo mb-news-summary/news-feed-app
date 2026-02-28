@@ -1,0 +1,82 @@
+name: "Bug Report"
+description: "Report a defect with clear reproduction and expected behavior."
+title: "bug(<scope>): <short description>"
+labels: ["bug", "needs-triage"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Where is the bug located?
+      options:
+        - frontend
+        - api-gateway
+        - worker-fetcher
+        - worker-summarizer
+        - infra/devops
+        - docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Bug Summary
+      description: One paragraph describing the defect and impact.
+      placeholder: "When changing date + topic, no data is returned even though the API has data."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Open frontend at ...
+        2. Click Load News
+        3. Change date to ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files To Add / Update
+      description: List the exact files expected to be changed.
+      placeholder: |
+        - frontend/src/pages/Index.tsx
+        - frontend/src/lib/newsApi.ts
+        - api-gateway/service.go
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots
+      description: Add screenshots, curl outputs, stack traces, or console logs.
+
+  - type: checkboxes
+    id: done
+    attributes:
+      label: Definition of Done
+      options:
+        - label: Reproduction steps included
+          required: true
+        - label: Impacted component selected
+          required: true
+        - label: Files to change listed
+          required: false

@@ -1,7 +1,12 @@
+## Linked Issue
+
+Closes #
+
 ## Summary
 
-- What problem does this PR solve?
-- What is the approach taken?
+- Problem:
+- Approach:
+- Why this approach:
 
 ## Scope
 
@@ -12,42 +17,52 @@
 - [ ] Infrastructure / Docker Compose
 - [ ] Documentation
 
+## Files Changed
+
+List the most important files and why they changed.
+
 ## Architecture Impact
 
-Describe how this change affects the pipeline:
+Describe impact on:
 
 - Browser -> Frontend -> API
-- API -> Redis / PostgreSQL
+- API -> Redis / PostgreSQL / fallback provider
 - Fetcher -> RabbitMQ
 - Summarizer -> LLM / PostgreSQL / Redis
 
 ## Test Plan
 
-### Automated
+### Unit
 
-- [ ] `cd api-gateway && go test -v ./...`
-- [ ] `cd frontend && npm run test`
+- [ ] `cd api-gateway && go test ./...`
+- [ ] `cd frontend && pnpm test`
 
-### Manual
+### Integration
 
-1. Steps executed:
-2. Expected result:
-3. Actual result:
+- [ ] `docker compose up -d --build`
+- [ ] `curl http://localhost:18080/api/health`
+- [ ] Relevant `/api/news` query verified
 
-## Screenshots / Recordings (if UI changed)
+### Regression
 
-<!-- Add before/after screenshots or short clip -->
+- [ ] Filter change flow verified (date/topic/country/count)
+- [ ] Load/Refresh behavior verified
+- [ ] Error/empty state behavior verified
+
+## Screenshots / Recordings (UI changes)
+
+<!-- Add before/after images or a short clip -->
 
 ## Deployment Notes
 
 - Env vars added/changed:
-- DB migrations or schema changes:
-- Backward compatibility concerns:
+- Data/schema changes:
+- Backward compatibility:
+- Rollback plan:
 
 ## Checklist
 
-- [ ] Code follows project conventions
-- [ ] New/updated tests included where needed
-- [ ] Docs updated (`README`, env examples, compose)
+- [ ] Tests added/updated where needed
+- [ ] Docs updated (root/module README or env examples)
 - [ ] No secrets committed
 - [ ] Ready for review
