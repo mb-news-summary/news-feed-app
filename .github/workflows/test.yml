@@ -1,13 +1,14 @@
 workflow: Test Self hosted runner
 
-on: push
+on: 
+  push:
   branches:
     - test-gh-runner
   
   jobs:
     test:
-    runs-on:
-      - test-runner-app
-    steps:
-      run: |
-        echo "test on my GH self hosted runner"
+      runs-on: test-runner-app
+      steps:
+        - name: "Test name"
+          run: |
+            echo "test on my GH self hosted runner"
